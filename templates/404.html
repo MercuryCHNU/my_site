@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+This Page Has Been Eatten By Developer
+{% endblock  %}
+
+{% block content %}
+
+  <h1>Угадай число</h1>
+  
+  <p>Я загадал число от 1 до 10. Попробуй угадать!</p>
+  
+  <input type="number" id="guess" placeholder="Введите число">
+  <button onclick="checkGuess()">Проверить</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    function checkGuess() {
+      var number = Math.floor(Math.random() * 10) + 1;
+      var guess = parseInt(document.getElementById("guess").value);
+      
+      if (guess === number) {
+        document.getElementById("result").innerHTML = "Поздравляю, вы угадали число!";
+      } else {
+        document.getElementById("result").innerHTML = "Неверно. Попробуйте еще раз.";
+      }
+    }
+  </script>
+
+{% endblock  %}
